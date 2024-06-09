@@ -44,6 +44,14 @@ public class Danie {
         this.cena = cena;
     }
 
+    public Danie() {}
+
+    public Danie(String nazwa, String opis, Double cena) {
+        this.nazwa = nazwa;
+        this.opis = opis;
+        this.cena = cena;
+    }
+
 }
 
 
