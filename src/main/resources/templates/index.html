@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Smaczne</title>
+</head>
+<body>
+<div th:insert="~{navbar :: navbar}"></div>
+
+<div>
+    <H2>Zamów jedzenie, tylko!</H2>
+    <p>Catering z dowozem</p>
+</div>
+
+<div>
+    <H2>Sprawdź nasze oferty!</H2>
+<!--    Tu fajnie by było jakieś zdjęcie jakiegoś jedzenia-->
+    <a href="/dania">Kliknij mnie!</a>
+</div>
+
+<div>
+    <H2>Kontakt</H2>
+    <p>Pytania? Uwagi? Skontaktuj się z nami! Pisz śmiało!</p>
+    <a href="/kontakt"></a>
+</div>
+
+<div th:insert="~{footer :: footer}"></div>
+
+</body>
+</html>
