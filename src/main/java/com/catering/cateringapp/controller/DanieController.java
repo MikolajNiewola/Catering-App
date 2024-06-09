@@ -15,7 +15,7 @@ public class DanieController {
     private DanieRepository danieRepository;
 
     @GetMapping("/dania")
-    public String listaDan(Model model) {
+    public String menu(Model model) {
         List<Danie> dania = danieRepository.findAll();
         model.addAttribute("dania", dania);
         return "listaDan";

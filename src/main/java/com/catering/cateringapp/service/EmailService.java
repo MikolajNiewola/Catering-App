@@ -16,7 +16,7 @@ public class EmailService {
         message.setTo("tok.test.test@gmail.com");
         message.setFrom(from);
         message.setSubject(subject);
-        message.setText(text);
+        message.setText("od: " + from + "\n" + "Treść: " + text);
         mailSender.send(message);
         System.out.println("Mail został wysłany");
     }
