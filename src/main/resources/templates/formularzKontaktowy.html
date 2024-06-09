@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Formularz kontaktowy</title>
+</head>
+<body>
+  <h1>Kontakt</h1>
+
+  <form action="/wyslijEmail" method="post">
+    <textarea name="tresc" placeholder="Treść wiadomości"></textarea>
+    <button type="submit">Wyślij</button>
+  </form>
+</body>
+</html>

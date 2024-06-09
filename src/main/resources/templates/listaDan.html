@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/koszyk">Koszyk</a></li>
+        <li><a href="/formularzKontaktowy">Kontakt</a></li>
+    </ul>
+</nav>
+
+<h1>Menu</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nr.</th>
+        <th>Nazwa</th>
+        <th>Opis</th>
+        <th>Cena</th>
+        <th>Akcja</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="danie : ${dania}">
+        <td th:text="${danie.id}"></td>
+        <td th:text="${danie.nazwa}"></td>
+        <td th:text="${danie.opis}"></td>
+        <td th:text="${danie.cena}"></td>
+        <td>
+            <form action="/dodajDoKoszyka" method="post">
+                <input type="hidden" name="id" th:value="${danie.id}" />
+                <input type="number" name="ilosc" value="1" min="1" />
+                <button type="submit">Dodaj do koszyka</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

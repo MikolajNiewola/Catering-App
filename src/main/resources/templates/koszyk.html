@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Koszyk</title>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/dania">Menu</a></li>
+    <li><a href="/formularzKontaktowy">Kontakt</a></li>
+  </ul>
+</nav>
+
+<h1>Koszyk</h1>
+
+<table border="1">
+  <thead>
+  <tr>
+    <th>Danie</th>
+    <th>Ilość</th>
+    <th>Cena</th>
+    <th>Akcje</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="pozycja : ${koszyk}">
+    <td th:text="${pozycja.danie.nazwa}"></td>
+    <td th:text="${pozycja.ilosc}"></td>
+    <td th:text="${pozycja.danie.cena}"></td>
+    <td>
+      <form action="/usunZKoszyka" method="post">
+        <input type="hidden" name="id" th:value="${pozycja.danie.id}" />
+        <button type="submit">Usuń</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
