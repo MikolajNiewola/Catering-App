@@ -5,12 +5,7 @@
 </head>
 <body>
 
-<nav>
-  <ul>
-    <li><a href="/dania">Menu</a></li>
-    <li><a href="/formularzKontaktowy">Kontakt</a></li>
-  </ul>
-</nav>
+<div th:insert="~{navbar :: navbar}"></div>
 
 <h1>Koszyk</h1>
 
@@ -37,5 +32,6 @@
   </tr>
   </tbody>
 </table>
+<div th:insert="~{footer :: footer}"></div>
 </body>
 </html>
