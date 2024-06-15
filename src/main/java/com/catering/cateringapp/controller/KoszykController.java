@@ -5,6 +5,7 @@ import com.catering.cateringapp.model.Koszyk;
 import com.catering.cateringapp.repository.DanieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -25,7 +26,11 @@ public class KoszykController {
     }
 
     @GetMapping("/koszyk")
-    public String pokazKoszyk() {
+    public String pokazKoszyk(Model model, @ModelAttribute("koszyk") List<Koszyk> koszyk) {
+        double sumaWartosci = koszyk.stream()
+                .mapToDouble(p -> p.getDanie().getCena() * p.getIlosc())
+                .sum();
+        model.addAttribute("sumaWartosci", sumaWartosci);
         return "koszyk";
     }
 
