@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl-PL" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Menu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu | Smaczne.pl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
+  <div id="content-wrapper">
+    <div id="navbar-wrapper" th:insert="~{navbar :: navbar}"></div>
 
-<div th:insert="~{navbar :: navbar}"></div>
+    <h1 class="just-header">Menu</h1>
 
-<h1>Menu</h1>
-
-<table border="1">
-    <thead>
-    <tr>
-        <th>Nr.</th>
-        <th>Nazwa</th>
-        <th>Opis</th>
-        <th>Cena</th>
-        <th>Akcja</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="danie : ${dania}">
-        <td th:text="${danie.id}"></td>
-        <td th:text="${danie.nazwa}"></td>
-        <td th:text="${danie.opis}"></td>
-        <td th:text="${danie.cena}"></td>
-        <td>
+    <table>
+      <thead>
+        <tr>
+          <th>Nr</th>
+          <th>Nazwa</th>
+          <th>Opis</th>
+          <th>Cena</th>
+          <th>Akcja</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="danie : ${dania}">
+          <td th:text="${danie.id}" style="text-align: right;"></td>
+          <td th:text="${danie.nazwa}"></td>
+          <td th:text="${danie.opis}"></td>
+          <td th:text="${danie.cena + '0 zł'}"></td>
+          <td>
             <form action="/dodajDoKoszyka" method="post">
-                <input type="hidden" name="id" th:value="${danie.id}" />
-                <input type="number" name="ilosc" value="1" min="1" />
-                <button type="submit">Dodaj do koszyka</button>
+              <input type="hidden" name="id" th:value="${danie.id}" />
+              <input class="amount-input" type="number" name="ilosc" value="1" min="1" step="1" />
+              <button type="submit">Do koszyka</button>
             </form>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div th:insert="~{footer :: footer}"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div id="footer-wrapper" th:insert="~{footer :: footer}"></div>
 </body>
+
 </html>

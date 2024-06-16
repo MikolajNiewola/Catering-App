@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="pl-PL" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>navbar</title>
+  <meta charset="UTF-8">
+  <title>navbar</title>
 </head>
+
 <body>
-<div th:fragment="navbar">
-    <H1><a href="/">Smaczne.pl</a></H1>
-    <nav>
-        <ul>
-            <li><a href="/dania">Menu</a></li>
-            <li><a href="/koszyk">Koszyk</a></li>
-            <li><a href="/kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
-</div>
+  <nav th:fragment="navbar">
+    <a class="navbar-title" href="/">Smaczne.pl</a>
+    <ul>
+      <li><a href="/dania">Menu</a></li>
+      <li><a href="/koszyk">Koszyk</a></li>
+      <li><a href="/kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
 </body>
+
 </html>

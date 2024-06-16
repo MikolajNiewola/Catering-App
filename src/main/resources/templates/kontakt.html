@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl-PL" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-  <title>Formularz kontaktowy</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt | Smaczne.pl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
-<div th:insert="~{navbar :: navbar}"></div>
+  <div id="content-wrapper">
+    <div id="navbar-wrapper" th:insert="~{navbar :: navbar}"></div>
 
-  <h1>Kontakt</h1>
+    <h1 class="just-header">Kontakt</h1>
 
-<form action="/sendMail" method="post">
-  <label for="from">Email:</label>
-  <input type="email" id="from" name="from" required>
-  <br>
-  <label for="subject">Temat:</label>
-  <input type="text" id="subject" name="subject" required>
-  <br>
-  <label for="text">Wiadomość:</label>
-  <textarea id="text" name="text" required></textarea>
-  <br>
-  <button type="submit">Wyślij Email</button>
-</form>
+    <form class="mail-form" action="/sendMail" method="post">
+      <div>
+        <input type="email" id="from" name="from" required placeholder="Email">
+      </div>
+      <div>
+        <input type="text" id="subject" name="subject" required placeholder="Temat">
+      </div>
+      <div>
+        <textarea id="text" name="text" required rows="20" placeholder="Treść wiadomości..."></textarea>
+      </div>
+      <div>
+        <button type="submit">Wyślij Email</button>
+      </div>
 
-<div th:insert="~{footer :: footer}"></div>
+    </form>
+  </div>
+
+
+  <div id="footer-wrapper" th:insert="~{footer :: footer}"></div>
 </body>
+
 </html>

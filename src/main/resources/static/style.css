@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Kanit", sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+#navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0px -19px 20px 20px rgba(0, 0, 0, 0.5);
+}
+
+#content-wrapper {
+    padding-bottom: 4.5rem;
+}
+
+#footer-wrapper {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+nav {
+    padding: 1rem 1em;
+    display: flex;
+    justify-content: space-between;
+    background-color: #222;
+    color: white;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+nav .navbar-title {
+    margin: 0 1em;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+nav ul li {
+    margin: 0 2em;
+    padding: 1em;
+}
+
+.just-header {
+    text-align: center;
+    font-size: 3rem;
+    margin: 0.5em;
+}
+
+.intro {
+    padding: 6rem 0;
+    text-align: center;
+    background: url("/img/bg1.webp");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-size: 1.66rem;
+    text-shadow: 1px 1px 7px black;
+}
+
+.intro h2 {
+    padding: 0;
+    font-weight: normal;
+}
+
+.offering {
+    background-color: hsl(32, 100%, 80%);
+    padding: 5rem 7rem 7rem 7rem;
+    text-align: left;
+    background-image: url("/img/pizza-2.webp");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    font-size: 1.66rem;
+}
+
+.offering h2 {
+    font-size: 1.6em;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5em 1em;
+}
+
+.offering .button {
+    color: white;
+    background-color: #e97f07;
+    border-radius: 99px;
+    transition: all 0.5s ease-out;
+}
+
+.offering .button:hover {
+    color: white;
+    background-color: #ff8f0f;
+    border-radius: 99px;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.25);
+}
+
+.contact-us {
+    padding: 5rem 7rem 7rem 7rem;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.contact-us .button,
+.go-back {
+    color: black;
+    background-color: #eeeeee;
+    border-radius: 99px;
+    transition: all 0.5s ease-out;
+}
+
+.contact-us .button:hover,
+.go-back:hover {
+    color: black;
+    background-color: #ffffff;
+    border-radius: 99px;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.25);
+}
+
+.intro h2,
+.offering h2 {
+    padding: 1.5rem 0;
+}
+
+.mail-form {
+    max-width: 800px;
+    margin: auto;
+}
+
+.mail-form input,
+.mail-form textarea {
+    width: 100%;
+    margin: 0.33em 0;
+    background-color: #eee;
+    border: 0;
+    padding: 1em;
+    border-radius: 27px;
+    resize: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+}
+
+.mail-form button {
+    text-align: center;
+    background-color: #eee;
+    border: 0;
+    margin: 0.33em 0;
+    width: 100%;
+    padding: 0.6em;
+    border-radius: 27px;
+    font-family: "Kanit", sans-serif;
+    font-size: 1.25em;
+}
+
+footer {
+    padding: 1.5rem 2em;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ddd;
+    color: black;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto 2em auto;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+table button.delete {
+    background-color: #be3333;
+}
+
+table button:hover {
+    background-color: #45a049;
+}
+
+table button.delete:hover {
+    background-color: #922727;
+}
+
+.amount-input {
+    width: 50px;
+}
+
+input[type="number"] {
+    font-size: 1em;
+    border-radius: 100px;
+    text-align: right;
+    padding: 0.25em;
+    background-color: transparent;
+    border: gray
+}
