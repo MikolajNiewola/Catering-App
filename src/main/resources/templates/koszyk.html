@@ -1,44 +1,61 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="pl-PL" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-  <title>Koszyk</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koszyk | Smaczne.pl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
+  <div id="content-wrapper">
+    <div id="navbar-wrapper" th:insert="~{navbar :: navbar}"></div>
 
-<div th:insert="~{navbar :: navbar}"></div>
+    <h1 class="just-header">Koszyk</h1>
 
-<h1>Koszyk</h1>
+    <div th:if="${koszyk.isEmpty()}">
+      <p style="text-align: center;">Pusto tu... Zobacz nasze menu i wrzuć coś do koszyka!</p>
+    </div>
 
-<table border="1">
-  <thead>
-  <tr>
-    <th>Danie</th>
-    <th>Ilość</th>
-    <th>Cena</th>
-    <th>Akcje</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="pozycja : ${koszyk}">
-    <td th:text="${pozycja.danie.nazwa}"></td>
-    <td th:text="${pozycja.ilosc}"></td>
-    <td th:text="${pozycja.danie.cena}"></td>
-    <td>
-      <form action="/usunZKoszyka" method="post">
-        <input type="hidden" name="id" th:value="${pozycja.danie.id}" />
-        <button type="submit">Usuń</button>
-      </form>
-    </td>
-  </tr>
-  </tbody>
-</table>
-<form action="/zaplac" method="post">
-  <button type="submit">Zamów i Zapłać</button>
-</form>
-  <div>
-  <span>Łączna cena: </span>
-  <span th:text="${sumaWartosci}"></span>
-</div>
-<div th:insert="~{footer :: footer}"></div>
+    <div th:unless="${koszyk.isEmpty()}">
+      <table>
+        <thead>
+          <tr>
+            <th>Danie</th>
+            <th>Ilość</th>
+            <th>Cena</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="pozycja : ${koszyk}">
+            <td th:text="${pozycja.danie.nazwa}"></td>
+            <td th:text="${pozycja.ilosc}"></td>
+            <td th:text="${pozycja.danie.cena + '0 zł'}"></td>
+            <td>
+              <form action="/usunZKoszyka" method="post">
+                <input type="hidden" name="id" th:value="${pozycja.danie.id}" />
+                <button class="delete" type="submit">Usuń</button>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: right;">Łączna cena</td>
+            <td th:text="${sumaWartosci + '0 zł'}"></td>
+            <td>
+              <form action="/zaplac" method="post">
+                <button type="submit">Zamów i Zapłać</button>
+              </form>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="footer-wrapper" th:insert="~{footer :: footer}"></div>
 </body>
+
 </html>

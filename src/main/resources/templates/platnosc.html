@@ -1,13 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl-PL" xmlns:th="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Płatność | Smaczne.pl</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js" defer></script>
 </head>
+
 <body>
-  <div>
-    <H1>Twoje zamówienie zostało przyjęte!</H1>
-    <a href="/"><p>Powrót na stronę główną</p></a>
+  <div id="content-wrapper">
+    <div id="navbar-wrapper" th:insert="~{navbar :: navbar}"></div>
+
+    <h1 class="just-header">Twoje zamówienie zostało przyjęte! 🥳</h1>
+    <div style="text-align: center;">
+      <a class="button go-back" href="/">Powrót na stronę główną</a>
+    </div>
   </div>
+
+  <div id="footer-wrapper" th:insert="~{footer :: footer}"></div>
+
+  <script>
+    addEventListener("DOMContentLoaded", e => {
+      const jsc = new JSConfetti();
+      jsc.addConfetti({
+        confettiRadius: 6,
+        confettiNumber: 500,
+      });
+    });
+  </script>
+
 </body>
+
 </html>
